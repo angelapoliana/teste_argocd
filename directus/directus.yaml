@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: directus
+spec:
+  destination:
+    name: ''
+    namespace: directus
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://github.com/getupcloud/helm-charts'
+    targetRevision: 0.0.8
+    chart: basic-app
+  helm:
+    values: |
+      image:
+        repository: directus/directus:latest   
+      envFrom: 
+        configMaps:
+        - name: ""
+          optional: false
+        - data:
+            REDIS_HOST:sy-devops-tools-storage-general-purpose-cache.ddzmsd.0001.use1.cache.amazonaws.com
+          optional: false
+      secrets:
+      - name: directus-secret
+        optional: false
+      - data:
+        USERNAME: angela@getupcloud.com
+        PASSWORD: admin
+        optional: false            
+  project: sht-tools
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
