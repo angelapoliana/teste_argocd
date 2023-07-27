@@ -8,6 +8,18 @@ env:
     value: admin
   - name: CACHE_ENABLED
     value: "true"
+  - name: DB_CLIENT
+    value: mysql
+  - name: DB_DATABASE
+    value: directus
+  - name: DB_HOST
+    value: mariadb.mariadb.svc.cluster.local
+  - name: DB_PASSWORD
+    value: directus
+  - name: DB_PORT
+    value: '3306'
+  - name: DB_USER
+    value: directus
   - name: CACHE_STORE
     value: redis
   - name: KEY
