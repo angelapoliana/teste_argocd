@@ -13,15 +13,15 @@ env:
   - name: DB_CLIENT
     value: mysql
   - name: DB_DATABASE
-    value: directus
+    value: teste
   - name: DB_HOST
     value: mariadb.mariadb.svc.cluster.local
   - name: DB_PASSWORD
-    value: directus
+    value: teste
   - name: DB_PORT
     value: "3306"
   - name: DB_USER
-    value: directus
+    value: teste
   - name: KEY
     value: 255d861b-5ea1-5996-9aa3-922530ec40b1
   - name: REDIS
